@@ -1,0 +1,33 @@
+/**
+ * Global color styles
+ */
+
+ // Foreground color
+$foreColor: rgb(0, 0, 0);
+$foreColorMedium: rgb(60, 60, 60);
+$foreColorMediumLight: lighten($foreColorMedium, 20%);
+$foreColorLight: rgb(255, 255, 255);
+
+// Background color
+$backColorLight: rgb(255, 255, 255);
+$backColor: rgb(220, 220, 220);
+$backColorMedium: rgb(190, 190, 190);
+$backColorDark: #000;
+
+// Danger action color
+$dangerColorNormal: rgb(231, 76, 60);
+$dangerColorDark: rgb(192, 57, 43);
+
+// Success action color
+$successColorNormal: rgb(39, 174, 96);
+$successColorDark: rgb(30, 130, 76);
+
+// Warning action color
+$warningColor: goldenrod;
+$warningColorLight: saturate(lighten($warningColor, 20%), 40%);
+$warningColorDark: darken($warningColor, 30%);
+
+// Cherry color
+$accentColor: #49DD5D;
+$accentColorLight: saturate(lighten($accentColor, 20%), 40%);
+$accentColorDark: darken($accentColor, 10%);

@@ -1,0 +1,49 @@
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+
+/**
+ * Global styles
+ */
+
+@import "styles/colors";
+@import "styles/fonts";
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    user-select: none;
+    background: $backColorDark;
+    color: $foreColorLight;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+}
+
+// @import "styles/filters";
+@import "styles/typography";
+@import "styles/button";
+// @import "styles/table";
+// @import "styles/form";
+
+.search {
+    display: inline-flex;
+
+    section {
+        margin-left: 10px;
+    }
+
+    select {
+        width: 350px;
+    }
+}

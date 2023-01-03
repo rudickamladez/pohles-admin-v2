@@ -1,0 +1,139 @@
+@import "../../styles/colors";
+
+:host {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: $backColorDark;
+
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    flex-flow: column;
+    align-items: center;
+
+    @media (max-width: 650px) {
+        grid-template-rows: auto auto;
+        align-items: initial;
+    }
+}
+
+h1 {
+    color: $foreColorLight;
+    font-size: 56px;
+    z-index: 1;
+    text-align: center;
+    grid-row: 1 / 2;
+
+    @media (max-width: 900px) {
+        font-size: 36px;
+    }
+
+    @media (max-width: 650px) {
+        margin: auto;
+        margin-top: 50px;
+    }
+}
+
+h2 {
+    margin: 0;
+    margin-top: -24px;
+    margin-bottom: 16px;
+    padding: 0;
+    font-size: 28px;
+    background: none;
+    height: auto;
+    box-shadow: none;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.99);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.window,
+h1 {
+    animation: 500ms fadeIn;
+    animation-delay: 300ms;
+    animation-fill-mode: backwards;
+}
+
+.window {
+    z-index: 1;
+    max-width: 550px;
+    width: 100%;
+    padding: 64px 16px;
+    padding-bottom: calc(64px - 32px);
+    color: $foreColor;
+    background: $backColorMedium;
+    box-shadow: 0 0 70px rgba($color: $foreColor, $alpha: 0.15);
+    text-align: center;
+    grid-row: 2 / 3;
+    margin: auto;
+    animation-delay: 350ms;
+
+    @media (max-width: 650px) {
+        max-width: initial;
+        margin-bottom: 0;
+    }
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.75;
+    max-width: 400px;
+    margin: auto;
+    margin-bottom: 48px;
+
+    &.wait-text {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 16px;
+        min-width: 100%;
+        z-index: 10000;
+
+        animation: 300ms fadeIn;
+        animation-fill-mode: backwards;
+
+        & > span{
+            max-width: 500px;
+            width: 100%;
+            display: block;
+            margin: auto;
+            background-color: $dangerColorDark;
+            color: $foreColorLight;
+            padding: 24px 32px;
+            text-align: center;
+            box-shadow: 0 0 70px rgba($color: $foreColor, $alpha: 0.15);
+        }
+    }
+
+    @media (max-width: 650px) {
+        font-size: 18px;
+        line-height: 1.33;
+        margin-bottom: 24px;
+    }
+}
+
+button.large {
+    margin-bottom: 32px !important;
+    min-width: 160px;
+
+    .fa-spin {
+        margin: 0;
+
+        &::before {
+            transform: scale(1.4);
+            display: block;
+        }
+    }
+}

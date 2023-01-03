@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HelloComponent } from './hello/hello.component';
+import { LoginWindowComponent } from './login-window/login-window.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: "404",
     component: NotFoundComponent,
+  },
+  {
+    path: "login",
+    component: LoginWindowComponent,
   },
   {
     path: "",
