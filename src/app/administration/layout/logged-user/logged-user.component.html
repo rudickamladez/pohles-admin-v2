@@ -1,0 +1,21 @@
+<div class="user" *ngIf="currentUser">
+    <p class="name">{{currentUserNickname}}</p>
+    <div class="picture">
+        <i class="fas fa-user fa-icon"></i>
+    </div>
+</div>
+
+<div class="details" *ngIf="currentUser">
+    <div class="info" label="Name" *ngIf="currentUser.nickname">{{currentUser.name}}</div>
+    <div class="info" label="E-mail">{{currentUser.email}}</div>
+    <div class="info" label="Roles">{{formatedRoles}}</div>
+    <div class="button-container">
+        <button (click)="logout()">
+            <i class="fas fa-sign-out-alt fa-icon"></i>
+            Log out
+        </button>
+        <a [routerLink]="'/admin/users/detail/' + currentUser.id" class="button secondary">
+            My profile
+        </a>
+    </div>
+</div>

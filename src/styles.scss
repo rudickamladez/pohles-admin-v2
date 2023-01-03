@@ -30,6 +30,15 @@ body {
     font-size: 18px;
 }
 
+body.light {
+    background: $backColor;
+    color: $foreColor;
+}
+
+body.alt-font {
+    font-family: "Open Sans";
+}
+
 // @import "styles/filters";
 @import "styles/typography";
 @import "styles/button";

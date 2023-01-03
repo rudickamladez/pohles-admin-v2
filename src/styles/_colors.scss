@@ -12,6 +12,7 @@ $foreColorLight: rgb(255, 255, 255);
 $backColorLight: rgb(255, 255, 255);
 $backColor: rgb(220, 220, 220);
 $backColorMedium: rgb(190, 190, 190);
+$backColorMediumDark: darken($backColorMedium, 50%);
 $backColorDark: #000;
 
 // Danger action color

@@ -6,25 +6,21 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: "hello",
-    component: HelloComponent,
-  },
-  {
-    path: "404",
-    component: NotFoundComponent,
-  },
-  {
     path: "login",
     component: LoginWindowComponent,
   },
   {
+      path: 'admin',
+      loadChildren: () => import('./administration/administration.module').then(o => o.AdministrationModule)
+  },
+  {
     path: "",
-    redirectTo: "hello",
-    pathMatch: "full"
+    pathMatch: "full",
+    component: HelloComponent
   },
   {
     path: "**",
-    redirectTo: "404"
+    component: NotFoundComponent
   }
 ];
 
