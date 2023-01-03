@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 
 @Component({
     selector: 'app-login-window',
@@ -8,13 +9,19 @@ import { Component } from '@angular/core';
 export class LoginWindowComponent {
     state = 0;
 
+    constructor(
+        @Inject(DOCUMENT) private document: Document
+    ) {}
+
     ngOnInit() {
     }
 
     loginClick() {
+        this.document.location = '/admin';
     }
 
     registerClick() {
+        this.document.location = '/admin';
     }
 
 }
