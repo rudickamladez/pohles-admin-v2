@@ -6,7 +6,6 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: $backColorDark;
 
     display: grid;
     grid-template-rows: 1fr auto 1fr;
@@ -20,7 +19,6 @@
 }
 
 h1 {
-    color: $foreColorLight;
     font-size: 56px;
     z-index: 1;
     text-align: center;
@@ -34,17 +32,6 @@ h1 {
         margin: auto;
         margin-top: 50px;
     }
-}
-
-h2 {
-    margin: 0;
-    margin-top: -24px;
-    margin-bottom: 16px;
-    padding: 0;
-    font-size: 28px;
-    background: none;
-    height: auto;
-    box-shadow: none;
 }
 
 @keyframes fadeIn {
@@ -71,9 +58,6 @@ h1 {
     width: 100%;
     padding: 64px 16px;
     padding-bottom: calc(64px - 32px);
-    color: $foreColor;
-    background: $backColorMedium;
-    box-shadow: 0 0 70px rgba($color: $foreColor, $alpha: 0.15);
     text-align: center;
     grid-row: 2 / 3;
     margin: auto;

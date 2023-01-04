@@ -60,7 +60,7 @@ button:not(.default-style),
     }
 
     &.destructive {
-        background: $dangerColorNormal;
+        background: $dangerColor;
 
         .can-focus &:focus,
         &:active {

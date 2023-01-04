@@ -15,14 +15,7 @@ a {
 
 h2 {
     font-size: 48px;
-    padding-top: 24px;
-    padding-left: 64px;
     font-weight: 700;
-    background: $backColorLight;
-    height: 152px;
-    box-shadow: 0 3px 3px rgba($foreColor, 0.05);
-    position: sticky;
-    left: 0;
 
     & + app-table,
     & + .table-wrapper,
