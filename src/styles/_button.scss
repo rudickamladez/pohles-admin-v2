@@ -15,7 +15,7 @@ button:not(.default-style),
     border: none;
     font: inherit;
     background: $accentColor;
-    color: $foreColorLight;
+    color: $foreColor;
     cursor: pointer;
     user-select: none;
     transition: 100ms all;
@@ -42,7 +42,7 @@ button:not(.default-style),
 
     &:hover,
     &:focus {
-        color: $foreColorLight;
+        color: $foreColor;
     }
 
     &:disabled {
@@ -103,8 +103,12 @@ button:not(.default-style),
             height: 50px;
             margin: 0 16px;
             padding: 0 32px;
-            border: 2px solid $foreColor;
+            border: 2px solid $foreColorDark;
             text-decoration: none !important;
+
+            &:not(:disabled):hover {
+                border: 2px solid $foreColor;
+            }
 
             & > .fa-icon {
                 margin-left: -4px;
@@ -120,11 +124,18 @@ button:not(.default-style),
 
     &.alt {
         background: $foreColorMedium;
-        box-shadow: inset 0px -2px 0px $foreColor;
+        border: 2px solid $foreColor;
+        box-shadow: none;
 
         .can-focus &:focus,
         &:active {
             background: $foreColorMediumLight;
+        }
+
+        &:not(:disabled):hover {
+            color: $foreColorMediumLight;
+            background: $backColor;
+            border: 2px solid $backColorMediumDark;
         }
     }
 

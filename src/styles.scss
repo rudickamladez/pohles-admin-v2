@@ -28,16 +28,13 @@
 
 body {
     user-select: none;
-    background: $backColorDark;
-    color: $foreColorLight;
+    background: $backColor;
+    color: $foreColor;
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
 }
 
-body.light {
-    background: $backColor;
-    color: $foreColor;
-}
+// class for light mode defined in colors file
 
 body.alt-font {
     font-family: "Open Sans";
