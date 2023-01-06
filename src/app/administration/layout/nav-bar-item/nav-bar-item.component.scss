@@ -6,7 +6,7 @@
     font-size: 16px;
     font-weight: 500;
     padding: 0 16px;
-    border-bottom: 1px solid rgba($color: $foreColor, $alpha: 0.2);
+    border-bottom: 1px solid $foreColorMedium;
     overflow: hidden;
 
     & > a {
@@ -40,7 +40,8 @@
         }
 
         &:not(.active):hover {
-            background: rgba($color: $foreColor, $alpha: 0.1);
+            color: $foreColorDark;
+            background: $backColorMedium;
             padding-left: 20px;
             cursor: pointer;
         }

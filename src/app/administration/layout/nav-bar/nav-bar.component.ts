@@ -37,7 +37,7 @@ export class NavBarComponent implements OnInit {
     }
 
     hide(): void {
-        // this.visible = false;
+        this.visible = false;
     }
 
     logout(): void {
