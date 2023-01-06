@@ -30,12 +30,13 @@
     top: 0;
     right: 0;
     z-index: 100;
+    min-width: 400px;
     padding: 16px;
     padding-top: 89px;
     transition: all 150ms;
     padding-top: 80px;
-    box-shadow: 0px 0px 16px rgba($color: $foreColor, $alpha: 0.2);
     background: $backColorMediumDark;
+    box-shadow: 0px 0px 16px $backColorMedium;
     color: $foreColor;
     transition: all 150ms;
     opacity: 0;

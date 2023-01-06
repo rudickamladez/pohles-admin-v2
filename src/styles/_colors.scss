@@ -12,6 +12,7 @@
     --color-background: rgb(0, 0, 0);
     --color-background-medium: rgb(190, 190, 190);
     --color-background-medium-hex: #000;
+    --color-background-medium-dark: rgb(94, 94, 94);
     --color-background-light: rgb(220, 220, 220);
 }
 
@@ -26,6 +27,7 @@ body.light {
     --color-background: rgb(220, 220, 220);
     --color-background-medium: rgb(190, 190, 190);
     --color-background-medium-hex: #000;
+    --color-background-medium-dark: rgb(168, 168, 168);
     --color-background-light: rgb(0, 0, 0);
 }
 
@@ -40,8 +42,7 @@ $foreColorDark: var(--color-foreground-dark);
 $backColor: var(--color-background);
 $backColorLight: var(--color-background-light);
 $backColorMedium: var(--color-background-medium);
-// $backColorMediumDark: darken($backColorMedium, 50%);
-$backColorMediumDark: darken(rgb(190, 190, 190), 50%);
+$backColorMediumDark: var(--color-background-medium-dark);
 
 // Danger action color
 $dangerColor: rgb(231, 76, 60);
