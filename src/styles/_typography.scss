@@ -34,16 +34,9 @@ h2 {
 
     @media (max-width: 1200px) {
         &:not(.ignore-mobile){
-            font-size: 24px;
+            font-size: 36px;
             padding-top: 14px;
             padding-bottom: 10px;
-            height: initial;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            min-height: 64px;
-            margin-bottom: 24px;
-            padding-right: 10px;
         }
     }
 }
