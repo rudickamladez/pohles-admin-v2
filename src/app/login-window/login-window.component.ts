@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-login-window',
@@ -8,6 +9,10 @@ import { Component, Inject } from '@angular/core';
 })
 export class LoginWindowComponent {
     state = 0;
+    public loginForm = new FormGroup({
+        username: new FormControl(''),
+        password: new FormControl('')
+    });
 
     constructor(
         @Inject(DOCUMENT) private document: Document
@@ -16,8 +21,13 @@ export class LoginWindowComponent {
     ngOnInit() {
     }
 
-    loginClick() {
-        this.document.location = '/admin';
+    submitLoginForm() {
+        // this.document.location = '/admin';
+        console.log(
+            'login',
+            this.loginForm.value.username,
+            this.loginForm.value.password
+        )
     }
 
     registerClick() {
