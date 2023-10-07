@@ -12,7 +12,7 @@ export class MenuItem extends MenuSubItem {
         public override name: string,
         public override link: string,
         public icon: string,
-        public customFunc: () => void
+        public customFunc?: () => void
     ) {
         super(name, link);
         this.subItems = [];

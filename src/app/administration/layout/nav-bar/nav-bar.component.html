@@ -13,7 +13,5 @@
             <app-nav-bar-subitem *ngFor="let subItem of item.subItems" [name]="subItem.name" [link]="subItem.link" (click)="hide()">
             </app-nav-bar-subitem>
         </app-nav-bar-item>
-        <app-nav-bar-item class="mobile-only" [item]="logoutItem" (click)="logout()">
-        </app-nav-bar-item>
     </nav>
 </div>
