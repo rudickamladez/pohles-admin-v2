@@ -1,30 +1,34 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { LoginWindowComponent } from './login-page/login-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
+import { AuthGuard } from './auth.guard';
+import { AdministrationModule } from './administration/administration.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
     NotFoundComponent,
-    LoginWindowComponent
+    LoginPageComponent
   ],
   imports: [
-    AppRoutingModule,
+    AdministrationModule,
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot(),
+    RouterModule.forRoot(APP_ROUTES, { useHash: false }),
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

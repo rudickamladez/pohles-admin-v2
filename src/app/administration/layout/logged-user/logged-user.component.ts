@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'app-logged-user',
@@ -6,18 +8,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./logged-user.component.scss']
 })
 export class LoggedUserComponent {
-  currentUser = {
-    id: 0,
-    name: 'Dev User',
-    nickname: 'Devuuuu',
-    email: 'dev.user@rudickamladez.cz',
-  };
   formatedRoles = 'All';
 
-  get currentUserNickname(): string {
-    return this.currentUser && this.currentUser.nickname ? this.currentUser.nickname : this.currentUser.name;
+  constructor(
+    private router: Router,
+    private oauthService: OAuthService
+  ) { }
+
+  get username() {
+    let claims = this.oauthService.getIdentityClaims();
+    if (!claims) return 'undefined';
+    return claims['preferred_username']
   }
 
-  logout() {}
+  get name() {
+    let claims = this.oauthService.getIdentityClaims();
+    if (!claims) return 'undefined';
+    return claims['name']
+  }
+
+  get email() {
+    let claims = this.oauthService.getIdentityClaims();
+    if (!claims) return 'undefined';
+    return claims['email']
+  }
+
+  get email_verified() {
+    let claims = this.oauthService.getIdentityClaims();
+    if (!claims) return 'undefined';
+    return claims['email_verified']
+  }
+
+  logout() {
+    this.oauthService.logOut(true);
+    this.router.navigate(['/home', { login: true }])
+  }
 
 }

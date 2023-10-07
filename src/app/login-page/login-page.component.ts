@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { authPasswordFlowConfig } from '../auth-password-flow.config';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginWindowComponent implements OnInit {
+export class LoginPageComponent implements OnInit {
   public loggingIn: boolean = false;
   public loginFailed: boolean = false;
   public errorText?: string;
@@ -18,6 +19,7 @@ export class LoginWindowComponent implements OnInit {
   userProfile: object = {};
 
   constructor(
+    private router: Router,
     private oauthService: OAuthService
   ) {
     // Tweak config for password flow
@@ -26,6 +28,9 @@ export class LoginWindowComponent implements OnInit {
 
     this.oauthService.configure(authPasswordFlowConfig);
     this.oauthService.loadDiscoveryDocument();
+    if (this.oauthService.hasValidAccessToken()) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   ngOnInit() { }
@@ -39,14 +44,16 @@ export class LoginWindowComponent implements OnInit {
       )
       .then(() => {
         console.debug('successfully logged in');
+        this.oauthService.setupAutomaticSilentRefresh();
         this.loginFailed = false;
-        window.location.href = '/admin';
+        this.router.navigate(['/dashboard']);
         this.loggingIn = false;
       })
       .catch((err) => {
         console.error('error logging in', err);
         this.errorText = err.error.error_description;
         this.loginFailed = true;
+        this.loginForm.value.password = '';
         this.loggingIn = false;
       });
   }
