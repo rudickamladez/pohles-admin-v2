@@ -5,8 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { LoginWindowComponent } from './login-window/login-window.component';
+import { LoginWindowComponent } from './login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    OAuthModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
