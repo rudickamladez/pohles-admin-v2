@@ -5,6 +5,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './administration/dashboard/dashboard.component';
 import { AdministrationLayoutComponent } from './administration/layout/layout.component';
+import { TimesListComponent } from './administration/times/list.component';
 
 export let APP_ROUTES: Routes = [
   {
@@ -32,7 +33,20 @@ export let APP_ROUTES: Routes = [
       },
       {
         path: 'dashboard',
-        component: DashboardComponent,
+        component: DashboardComponent
+      }, {
+        path: 'times',
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'list',
+          },
+          {
+            path: 'list',
+            component: TimesListComponent
+          }
+        ]
       },
       {
         path: '**',

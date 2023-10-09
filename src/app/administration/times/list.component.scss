@@ -1,0 +1,40 @@
+@import '../../../styles/_colors.scss';
+
+div {
+    margin: 0px 1rem;
+}
+
+.dataTables_wrapper,
+tr.odd {
+    background-color: $backColorMediumDarkTran;
+}
+
+
+td {
+    button {
+        min-width: 0px !important;
+        max-width: 100px !important;
+        box-shadow: none;
+        padding: 10px;
+        margin: auto 2.5px;
+
+        &.delete {
+            background-color: tomato;
+        }
+
+        &.edit {
+            background-color: #BF40BF;
+        }
+    }
+}
+
+.error {
+    animation: 500ms fadeIn;
+    animation-delay: 300ms;
+    animation-fill-mode: backwards;
+}
+
+.error {
+    background-color: rgba($color: red, $alpha: 0.15);
+    padding: 1.5rem;
+}

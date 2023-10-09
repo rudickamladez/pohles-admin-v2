@@ -12,13 +12,19 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { AuthGuard } from './auth.guard';
 import { AdministrationModule } from './administration/administration.module';
+import { TimesListComponent } from './administration/times/list.component';
+import { DataTablesModule } from 'angular-datatables';
+import { LoadingComponent } from './administration/loading/loading.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
     NotFoundComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    TimesListComponent,
+    LoadingComponent
   ],
   imports: [
     AdministrationModule,
@@ -27,6 +33,8 @@ import { AdministrationModule } from './administration/administration.module';
     ReactiveFormsModule,
     OAuthModule.forRoot(),
     RouterModule.forRoot(APP_ROUTES, { useHash: false }),
+    DataTablesModule,
+    FontAwesomeModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
