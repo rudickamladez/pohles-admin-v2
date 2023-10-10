@@ -48,4 +48,14 @@ export class TimeService {
       )
     );
   }
+
+  public delete(id: string): Observable<Time> {
+    return this.httpClient.delete(`${environment.backend.api}/${this.API_PATH}/${id}`).pipe(
+      map(
+        (res: any) => {
+          return <Time>res;
+        }
+      )
+    )
+  }
 }

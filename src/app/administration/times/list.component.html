@@ -19,10 +19,10 @@
                 <td>{{ time.name }}</td>
                 <td>{{ time.maxCountOfTickets }}</td>
                 <td>
-                    <button disabled class="edit" (confirm)="delete(time)">
+                    <button disabled class="edit" (click)="edit(time)">
                         <fa-icon [icon]="faPen"></fa-icon>
                     </button>
-                    <button disabled class="delete" (confirm)="delete(time)">
+                    <button class="delete" (click)="delete(time)">
                         <fa-icon [icon]="faTrash"></fa-icon>
                     </button>
                 </td>

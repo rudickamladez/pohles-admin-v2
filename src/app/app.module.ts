@@ -7,7 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OAuthModule } from 'angular-oauth2-oidc';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { AuthGuard } from './auth.guard';
@@ -16,6 +16,7 @@ import { TimesListComponent } from './administration/times/list.component';
 import { DataTablesModule } from 'angular-datatables';
 import { LoadingComponent } from './administration/loading/loading.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthInterceptor } from './auth.interceptor.';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DataTablesModule,
     FontAwesomeModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { TimeService } from './time.service';
 import { Time } from './time.types';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-times-list',
@@ -24,7 +25,8 @@ export class TimesListComponent implements OnInit, OnDestroy {
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(
-    private readonly timeService: TimeService
+    private readonly timeService: TimeService,
+    private readonly toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -47,7 +49,7 @@ export class TimesListComponent implements OnInit, OnDestroy {
         this.loadingState--;
       },
       complete: () => console.info('complete')
-  });
+    });
 
     this.timeService.deleteAsObservable().subscribe(
       (time) => {
@@ -61,7 +63,45 @@ export class TimesListComponent implements OnInit, OnDestroy {
     this.dtTrigger.unsubscribe();
   }
 
+  public edit(time: Time) {
+    console.log(time);
+  }
+
   public delete(time: Time) {
-    console.log(time)
+    if (!time.id) {
+      this.toastr.error(
+        `<div><b>Time DIDN'T deleted!</b><br/>Can't delete! Didn't receive time id.</div>`,
+        '',
+        {
+          enableHtml: true,
+          progressBar: true,
+        }
+      );
+      return;
+    }
+    this.timeService.delete(time.id).subscribe(
+      (time) => {
+        if (!time) {
+          this.toastr.error(
+            `<div><b>Time DIDN'T deleted!</b></div>`,
+            '',
+            {
+              enableHtml: true,
+              progressBar: true,
+            }
+          );
+          return
+        }
+        this.times.splice(this.times.indexOf(time), 1);
+        this.toastr.info(
+          `<b>Time "${time.name}" deleted</b>`,
+          '',
+          {
+            enableHtml: true,
+            progressBar: true
+          }
+        );
+      }
+    )
   }
 }

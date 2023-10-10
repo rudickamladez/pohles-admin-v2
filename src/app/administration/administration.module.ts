@@ -9,6 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { DataTablesModule } from "angular-datatables";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -24,6 +26,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         RouterModule,
         DataTablesModule,
         FontAwesomeModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(),
     ]
 })
 export class AdministrationModule { }
