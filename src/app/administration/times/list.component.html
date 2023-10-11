@@ -9,6 +9,7 @@
     <table *ngIf="!this.errorLoading.enabled" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
         <thead>
             <tr>
+                <th style="display: none;">ID</th>
                 <th>Name</th>
                 <th>Tickets</th>
                 <th>Actions</th>
@@ -16,6 +17,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let time of times">
+                <td style="display: none;">{{ time.id }}</td>
                 <td>{{ time.name }}</td>
                 <td>{{ time.maxCountOfTickets }}</td>
                 <td>
