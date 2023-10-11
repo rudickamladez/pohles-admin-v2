@@ -11,6 +11,10 @@ import { DataTablesModule } from "angular-datatables";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimesNewComponent } from './times/new.component';
+import { TimesListComponent } from './times/list.component';
+import { LoadingComponent } from './loading/loading.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -20,6 +24,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         LoggedUserComponent,
         NavBarSubitemComponent,
         DashboardComponent,
+        LoadingComponent,
+        TimesListComponent,
+        TimesNewComponent,
     ],
     imports: [
         CommonModule,
@@ -28,6 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         FontAwesomeModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
+        ReactiveFormsModule
     ]
 })
 export class AdministrationModule { }

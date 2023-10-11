@@ -6,6 +6,7 @@ import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './administration/dashboard/dashboard.component';
 import { AdministrationLayoutComponent } from './administration/layout/layout.component';
 import { TimesListComponent } from './administration/times/list.component';
+import { TimesNewComponent } from './administration/times/new.component';
 
 export let APP_ROUTES: Routes = [
   {
@@ -45,6 +46,10 @@ export let APP_ROUTES: Routes = [
           {
             path: 'list',
             component: TimesListComponent
+          },
+          {
+            path: 'add',
+            component: TimesNewComponent
           }
         ]
       },

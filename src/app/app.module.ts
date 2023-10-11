@@ -12,9 +12,7 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { AuthGuard } from './auth.guard';
 import { AdministrationModule } from './administration/administration.module';
-import { TimesListComponent } from './administration/times/list.component';
 import { DataTablesModule } from 'angular-datatables';
-import { LoadingComponent } from './administration/loading/loading.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthInterceptor } from './auth.interceptor.';
 
@@ -24,8 +22,6 @@ import { AuthInterceptor } from './auth.interceptor.';
     HelloComponent,
     NotFoundComponent,
     LoginPageComponent,
-    TimesListComponent,
-    LoadingComponent
   ],
   imports: [
     AdministrationModule,

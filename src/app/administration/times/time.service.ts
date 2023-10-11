@@ -49,6 +49,19 @@ export class TimeService {
     );
   }
 
+  public create(time: Time): Observable<Time> {
+    return this.httpClient.post(
+      `${environment.backend.api}/${this.API_PATH}`,
+      time
+    ).pipe(
+      map(
+        (res: any) => {
+          return <Time>res;
+        }
+      )
+    )
+  }
+
   public delete(id: string): Observable<Time> {
     return this.httpClient.delete(`${environment.backend.api}/${this.API_PATH}/${id}`).pipe(
       map(
