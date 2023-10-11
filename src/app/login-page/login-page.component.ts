@@ -16,7 +16,6 @@ export class LoginPageComponent implements OnInit {
     username: new FormControl(''),
     password: new FormControl('')
   });
-  userProfile: object = {};
 
   constructor(
     private router: Router,
