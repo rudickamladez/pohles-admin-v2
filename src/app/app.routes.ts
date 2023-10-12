@@ -8,6 +8,7 @@ import { AdministrationLayoutComponent } from './administration/layout/layout.co
 import { TimesListComponent } from './administration/times/list/component';
 import { TimesNewComponent } from './administration/times/new/component';
 import { TimesEditComponent } from './administration/times/edit/component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 export let APP_ROUTES: Routes = [
   {
@@ -36,7 +37,12 @@ export let APP_ROUTES: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
-      }, {
+      },
+      {
+        path: 'profile',
+        component: UserProfileComponent
+      },
+      {
         path: 'times',
         children: [
           {

@@ -15,6 +15,7 @@ import { AdministrationModule } from './administration/administration.module';
 import { DataTablesModule } from 'angular-datatables';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthInterceptor } from './auth.interceptor.';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AuthInterceptor } from './auth.interceptor.';
     HelloComponent,
     NotFoundComponent,
     LoginPageComponent,
+    UserProfileComponent,
   ],
   imports: [
     AdministrationModule,
