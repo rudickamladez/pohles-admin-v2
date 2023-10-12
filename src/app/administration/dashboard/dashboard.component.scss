@@ -8,14 +8,16 @@ div.container {
     align-items: stretch;
     flex-direction: column;
 
-    .row {
-        display: flex;
-        flex-direction: row;
-        align-items: space-around;
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
 
-        .col {
-            flex-grow: 1;
-            align-self: stretch;
+        @media screen and (max-width: 666px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media screen and (max-width: 333px) {
+            grid-template-columns: 1fr;
         }
     }
 }
@@ -36,17 +38,19 @@ div.container {
         grid-area: title;
         text-align: center;
     }
-
+    
     fa-icon {
         grid-area: icon;
         text-align: right;
         margin: .5rem;
+        font-size: 1.25rem;
     }
-
+    
     span {
         grid-area: value;
         text-align: left;
         margin: .5rem;
+        font-size: 1.25rem;
     }
 
     &.cancelled {
