@@ -9,16 +9,18 @@
     <table *ngIf="!this.errorLoading.enabled" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
         <thead>
             <tr>
-                <th style="display: none;">ID</th>
                 <th>Name</th>
+                <th style="display: none;">ID</th>
                 <th>Tickets</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let time of times">
-                <td style="display: none;">{{ time.id }}</td>
+                <!-- Datatables should sort by first column -->
                 <td>{{ time.name }}</td>
+                <!-- so hidden column with IDs is second -->
+                <td style="display: none;">{{ time.id }}</td>
                 <td>{{ time.maxCountOfTickets }}</td>
                 <td>
                     <button class="edit" (click)="edit(time)">
