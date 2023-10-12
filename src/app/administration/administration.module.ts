@@ -7,14 +7,15 @@ import { LoggedUserComponent } from './layout/logged-user/logged-user.component'
 import { NavBarSubitemComponent } from './layout/nav-bar-subitem/nav-bar-subitem.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
-import { DataTablesModule } from "angular-datatables";
+import { DataTablesModule } from 'angular-datatables';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TimesNewComponent } from './times/new.component';
-import { TimesListComponent } from './times/list.component';
 import { LoadingComponent } from './loading/loading.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TimesListComponent } from './times/list/component';
+import { TimesEditComponent } from './times/edit/component';
+import { TimesNewComponent } from './times/new/component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         DashboardComponent,
         LoadingComponent,
         TimesListComponent,
+        TimesEditComponent,
         TimesNewComponent,
     ],
     imports: [

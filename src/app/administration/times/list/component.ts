@@ -1,14 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { TimeService } from './time.service';
-import { Time } from './time.types';
+import { TimeService } from '../time.service';
+import { Time } from '../time.types';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-times-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  templateUrl: './component.html',
+  styleUrls: ['./component.scss']
 })
 export class TimesListComponent implements OnInit, OnDestroy {
   public faPen = faPen;
@@ -26,7 +27,8 @@ export class TimesListComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly timeService: TimeService,
-    private readonly toastr: ToastrService
+    private readonly toastr: ToastrService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -64,7 +66,7 @@ export class TimesListComponent implements OnInit, OnDestroy {
   }
 
   public edit(time: Time) {
-    console.log(time);
+    this.router.navigate(['/times/edit/' + time.id])
   }
 
   public delete(time: Time) {

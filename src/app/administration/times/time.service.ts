@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Time } from './time.types';
+import { Time, TimeUpdate } from './time.types';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -49,10 +49,41 @@ export class TimeService {
     );
   }
 
+  public getById(
+    id: string
+  ): Observable<Time> {
+    console.log(`${environment.backend.api}/${this.API_PATH}/${id}`)
+    return this.httpClient.get(
+      `${environment.backend.api}/${this.API_PATH}/${id}`
+    ).pipe(
+      map(
+        (res: any) => {
+          return <Time>res;
+        }
+      )
+    )
+  }
+
   public create(time: Time): Observable<Time> {
     return this.httpClient.post(
       `${environment.backend.api}/${this.API_PATH}`,
       time
+    ).pipe(
+      map(
+        (res: any) => {
+          return <Time>res;
+        }
+      )
+    )
+  }
+
+  public update(
+    id: string,
+    body: TimeUpdate
+  ): Observable<Time> {
+    return this.httpClient.patch(
+      `${environment.backend.api}/${this.API_PATH}/${id}`,
+      body
     ).pipe(
       map(
         (res: any) => {

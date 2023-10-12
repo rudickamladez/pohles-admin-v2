@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { TimeService } from './time.service';
+import { TimeService } from '../time.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-times-new',
-  templateUrl: './new.component.html',
-  styleUrls: ['./new.component.scss']
+  templateUrl: './component.html',
+  styleUrls: ['./component.scss']
 })
 export class TimesNewComponent {
   public form = new FormGroup({
