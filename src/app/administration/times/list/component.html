@@ -1,0 +1,34 @@
+<app-loading *ngIf="this.loadingState > 0"></app-loading>
+<div>
+    <div *ngIf="this.errorLoading.enabled" class="error">
+        <p>
+            There's problem loading table.<br/>
+            {{ this.errorLoading.text }}
+        </p>
+    </div>
+    <table *ngIf="!this.errorLoading.enabled" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+        <thead>
+            <tr>
+                <th style="display: none;">ID</th>
+                <th>Name</th>
+                <th>Tickets</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let time of times">
+                <td style="display: none;">{{ time.id }}</td>
+                <td>{{ time.name }}</td>
+                <td>{{ time.maxCountOfTickets }}</td>
+                <td>
+                    <button class="edit" (click)="edit(time)">
+                        <fa-icon [icon]="faPen"></fa-icon>
+                    </button>
+                    <button class="delete" (click)="delete(time)">
+                        <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

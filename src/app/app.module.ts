@@ -7,18 +7,21 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OAuthModule } from 'angular-oauth2-oidc';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { AuthGuard } from './auth.guard';
 import { AdministrationModule } from './administration/administration.module';
+import { DataTablesModule } from 'angular-datatables';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthInterceptor } from './auth.interceptor.';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
     NotFoundComponent,
-    LoginPageComponent
+    LoginPageComponent,
   ],
   imports: [
     AdministrationModule,
@@ -27,8 +30,13 @@ import { AdministrationModule } from './administration/administration.module';
     ReactiveFormsModule,
     OAuthModule.forRoot(),
     RouterModule.forRoot(APP_ROUTES, { useHash: false }),
+    DataTablesModule,
+    FontAwesomeModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

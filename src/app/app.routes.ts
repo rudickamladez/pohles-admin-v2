@@ -5,6 +5,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './administration/dashboard/dashboard.component';
 import { AdministrationLayoutComponent } from './administration/layout/layout.component';
+import { TimesListComponent } from './administration/times/list/component';
+import { TimesNewComponent } from './administration/times/new/component';
+import { TimesEditComponent } from './administration/times/edit/component';
 
 export let APP_ROUTES: Routes = [
   {
@@ -32,7 +35,32 @@ export let APP_ROUTES: Routes = [
       },
       {
         path: 'dashboard',
-        component: DashboardComponent,
+        component: DashboardComponent
+      }, {
+        path: 'times',
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'list',
+          },
+          {
+            path: 'list',
+            component: TimesListComponent
+          },
+          {
+            path: 'add',
+            component: TimesNewComponent
+          },
+          {
+            path: 'edit/:id',
+            component: TimesEditComponent
+          },
+          {
+            path: 'detail/:id',
+            component: TimesEditComponent,
+          }
+        ]
       },
       {
         path: '**',
