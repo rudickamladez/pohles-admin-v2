@@ -11,6 +11,7 @@ import { MenuBuilder } from './menu-builder';
 })
 export class NavBarComponent implements OnInit {
     dashboardItem = new MenuItem('Dashboard', 'dashboard', 'fa-chart-line');
+    userProfileItem = new MenuItem('My profile', 'profile', 'fa-user');
     logoutItem =  new MenuItem('Log out', '', 'fa-sign-out-alt', () => this.logout());
     builder = new MenuBuilder()
     availableItems: MenuItem[] = [];
@@ -25,7 +26,10 @@ export class NavBarComponent implements OnInit {
         this.visible = history.state.navBarVisible ?? false;
         this.availableItems = this.builder.build()
         this.availableItems.unshift(this.dashboardItem);
-        this.availableItems.push(this.logoutItem);
+        this.availableItems.push(
+            this.userProfileItem,
+            this.logoutItem
+        );
     }
 
     toggle(): void {
