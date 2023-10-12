@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Time, TimeUpdate } from './time.types';
+import { Time, TimeSum, TimeUpdate } from './time.types';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -101,5 +101,13 @@ export class TimeService {
         }
       )
     )
+  }
+
+  public getActiveSum(): Observable<TimeSum> {
+    return this.httpClient.get(`${environment.backend.api}/${this.API_PATH}/active/sum`).pipe(
+      map(
+        (timeSum: any) => <TimeSum>timeSum
+      )
+    );
   }
 }

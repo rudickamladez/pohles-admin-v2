@@ -1,8 +1,63 @@
-div {
+@import "../../../styles/colors";
+
+div.container {
     display: flex;
     height: 100%;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
+    margin: 0px 1rem;
+    justify-content: flex-start;
+    align-items: stretch;
     flex-direction: column;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        align-items: space-around;
+
+        .col {
+            flex-grow: 1;
+            align-self: stretch;
+        }
+    }
+}
+
+.card {
+    background-color: $backColorMedium;
+    color: black;
+    max-height: 100px;
+    margin: 10px 5px;
+    padding: 15px 10px;
+
+    display: grid;
+    grid-template-areas:
+    "title title"
+    "icon value";
+
+    p {
+        grid-area: title;
+        text-align: center;
+    }
+
+    fa-icon {
+        grid-area: icon;
+        text-align: right;
+        margin: .5rem;
+    }
+
+    span {
+        grid-area: value;
+        text-align: left;
+        margin: .5rem;
+    }
+
+    &.cancelled {
+        background-color: $dangerColorDark;
+    }
+
+    &.paid {
+        background-color: $successColor;
+    }
+
+    &.disabled {
+        background-color: rgba($color: #FFFFFF, $alpha: .33) !important;
+    }
 }

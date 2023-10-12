@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 
@@ -12,7 +13,8 @@ export class LoggedUserComponent {
 
   constructor(
     private router: Router,
-    private oauthService: OAuthService
+    private oauthService: OAuthService,
+    @Inject(DOCUMENT) private document: Document
   ) { }
 
   get username() {
@@ -42,6 +44,11 @@ export class LoggedUserComponent {
   logout() {
     this.oauthService.logOut(true);
     this.router.navigate(['/home', { login: true }])
+  }
+  
+  public toggleTheme() {
+    this.document.body.classList.toggle('light');
+    this.document.body.classList.toggle('alt-font');
   }
 
 }

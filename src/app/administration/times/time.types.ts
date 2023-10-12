@@ -22,4 +22,5 @@ export interface TimeSum {
     free: number;
     reserved: number;
     total: number;
+    cancelled: number;
 }
