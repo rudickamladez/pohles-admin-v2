@@ -1,5 +1,5 @@
 import { AuthConfig } from 'angular-oauth2-oidc';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 export const authPasswordFlowConfig: AuthConfig = {
 
@@ -15,6 +15,11 @@ export const authPasswordFlowConfig: AuthConfig = {
     // The SPA's id. 
     // The SPA is registerd with this id at the auth-server
     clientId: environment.keycloak.clientId,
+
+    /**
+     * Url of the token endpoint as defined by OpenId Connect and OAuth 2.
+     */
+    tokenEndpoint: environment.keycloak.tokenEndpoint,
 
     dummyClientSecret: environment.keycloak.clientSecret,
 
