@@ -6,6 +6,11 @@ export const authPasswordFlowConfig: AuthConfig = {
     // Url of the Identity Provider
     issuer: environment.keycloak.issuer,
 
+    /**
+     * The logout url.
+     */
+    logoutUrl: environment.keycloak.logoutUrl,
+
     // URL of the SPA to redirect the user to after login
     redirectUri: window.location.origin + '/admin/dashboard',
 
