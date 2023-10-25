@@ -39,7 +39,7 @@
     "@angular/compiler-cli": "~16.2.10",
     "@types/datatables.net": "^1.10.21",
     "@types/jasmine": "~5.1.0",
-    "@types/jquery": "^3.5.9",
+    "@types/jquery": "^3.5.25",
     "jasmine-core": "~5.1.1",
     "karma": "~6.4.2",
     "karma-chrome-launcher": "~3.2.0",
