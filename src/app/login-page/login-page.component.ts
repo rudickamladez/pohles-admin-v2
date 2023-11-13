@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { OAuthService } from 'angular-oauth2-oidc';
-import { authPasswordFlowConfig } from '../auth-password-flow.config';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   templateUrl: './login-page.component.html',
@@ -19,15 +18,9 @@ export class LoginPageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private oauthService: OAuthService
+    private authService: AuthService
   ) {
-    // Tweak config for password flow
-    // This is just needed b/c this demo uses both,
-    // implicit flow as well as password flow
-
-    this.oauthService.configure(authPasswordFlowConfig);
-    this.oauthService.loadDiscoveryDocument();
-    if (this.oauthService.hasValidAccessToken()) {
+    if (this.authService.hasValidAccessToken()) {
       this.router.navigate(['/dashboard']);
     }
   }
@@ -36,14 +29,14 @@ export class LoginPageComponent implements OnInit {
 
   loginWithPassword() {
     this.loggingIn = true;
-    this.oauthService
+    this.authService
       .fetchTokenUsingPasswordFlowAndLoadUserProfile(
         this.loginForm.value.username ?? '',
         this.loginForm.value.password ?? ''
       )
       .then(() => {
         console.debug('successfully logged in');
-        this.oauthService.setupAutomaticSilentRefresh();
+        this.authService.setupAutomaticSilentRefresh();
         this.loginFailed = false;
         this.router.navigate(['/dashboard']);
         this.loggingIn = false;

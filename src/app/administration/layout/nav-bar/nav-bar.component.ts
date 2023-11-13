@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from './menu-items';
 import { Router } from '@angular/router';
-import { OAuthService } from 'angular-oauth2-oidc';
 import { MenuBuilder } from './menu-builder';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
     selector: 'app-nav-bar',
@@ -19,7 +19,7 @@ export class NavBarComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private oauthService: OAuthService
+        private authService: AuthService
     ) { }
 
     ngOnInit(): void {
@@ -41,7 +41,7 @@ export class NavBarComponent implements OnInit {
     }
 
     logout(): void {
-        this.oauthService.logOut(true);
+        this.authService.logOut(true);
         this.router.navigate(['/home', { login: true }])
     }
 }

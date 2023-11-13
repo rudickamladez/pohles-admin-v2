@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OAuthService } from 'angular-oauth2-oidc';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-hello',
@@ -13,7 +13,7 @@ export class HelloComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private oauthService: OAuthService
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class HelloComponent implements OnInit {
       this.login = p['login'];
       if (this.login) {
         this.router.navigate(['/login']);
-      } else if (this.oauthService.hasValidAccessToken()) {
+      } else if (this.authService.hasValidAccessToken()) {
         this.router.navigate(['/dashboard']);
       }
     });

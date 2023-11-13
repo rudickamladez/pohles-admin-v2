@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { HelloComponent } from './hello/hello.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './auth/auth.guard';
 import { DashboardComponent } from './administration/dashboard/dashboard.component';
 import { AdministrationLayoutComponent } from './administration/layout/layout.component';
 import { TimesListComponent } from './administration/times/list/component';

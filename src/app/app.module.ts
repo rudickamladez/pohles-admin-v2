@@ -10,11 +10,11 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './auth/auth.guard';
 import { AdministrationModule } from './administration/administration.module';
 import { DataTablesModule } from 'angular-datatables';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AuthInterceptor } from './auth.interceptor.';
+import { AuthInterceptor } from './auth/auth.interceptor.';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
