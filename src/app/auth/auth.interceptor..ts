@@ -7,24 +7,48 @@ import {
     HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { OAuthService } from 'angular-oauth2-oidc';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
     constructor(
-        private oauthService: OAuthService
+        private authService: AuthService,
+        private readonly toastr: ToastrService
     ) { }
 
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+        if (!this.authService.hasValidAccessToken()) {
+            this.authService.refreshToken().then((
+                (value) => {
+                  console.log(value)
+                  this.toastr.info(
+                    'ok',
+                    'Refresh',
+                    {
+                      progressBar: true
+                    }
+                  )
+                }
+              )).catch((err) => {
+                this.toastr.error(
+                  err,
+                  'Error with refreshing',
+                  {
+                    progressBar: true
+                  }
+                )
+              })
+        }
         if (
-            this.oauthService.hasValidAccessToken() &&
+            this.authService.hasValidAccessToken() &&
             request.url.includes(environment.backend.api)
         ) {
 
             let headers = new HttpHeaders({
-                'Authorization': this.oauthService.authorizationHeader()
+                'Authorization': this.authService.authorizationHeader()
             });
 
             if (request.headers.has("Content-Type")) {

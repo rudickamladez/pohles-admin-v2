@@ -3,4 +3,8 @@
     <div class="info" label="Username">{{username}}</div>
     <div class="info" label="E-mail">{{email}}</div>
     <div class="info" label="E-mail verified">{{email_verified}}</div>
+    <span *ngIf="isKrakonos">
+        <div class="info" label="Access token" *ngIf="isKrakonos">{{ access_token }}</div>
+        <button (click)="refreshAcessTokenManually()">Refresh</button>
+    </span>
 </div>

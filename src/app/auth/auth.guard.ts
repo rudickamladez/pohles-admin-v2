@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { OAuthService } from 'angular-oauth2-oidc';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuard {
   constructor(
     private router: Router,
-    private oauthService: OAuthService
+    private authService: AuthService
   ) { }
 
   canActivate() {
     if (
-      this.oauthService.hasValidAccessToken() &&
-      true // this.oauthService.hasValidIdToken()
+      this.authService.hasValidAccessToken() &&
+      true // this.authService.hasValidIdToken()
     ) {
       return true;
     } else {

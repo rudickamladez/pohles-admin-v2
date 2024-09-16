@@ -1,10 +1,15 @@
 import { AuthConfig } from 'angular-oauth2-oidc';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 export const authPasswordFlowConfig: AuthConfig = {
 
     // Url of the Identity Provider
     issuer: environment.keycloak.issuer,
+
+    /**
+     * The logout url.
+     */
+    logoutUrl: environment.keycloak.logoutUrl,
 
     // URL of the SPA to redirect the user to after login
     redirectUri: window.location.origin + '/admin/dashboard',
@@ -15,6 +20,11 @@ export const authPasswordFlowConfig: AuthConfig = {
     // The SPA's id. 
     // The SPA is registerd with this id at the auth-server
     clientId: environment.keycloak.clientId,
+
+    /**
+     * Url of the token endpoint as defined by OpenId Connect and OAuth 2.
+     */
+    tokenEndpoint: environment.keycloak.tokenEndpoint,
 
     dummyClientSecret: environment.keycloak.clientSecret,
 
